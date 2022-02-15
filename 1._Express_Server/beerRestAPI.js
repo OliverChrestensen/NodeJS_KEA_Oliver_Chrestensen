@@ -10,22 +10,13 @@ app.get('/',(req,res) => {
 });
 
 app.get('/beers',(req,res) => {
-    res.json(beers);
+    res.send({data: beers});
 });
 
 app.get('/beers/:beerID',(req,res)=>{
  // Reading beerID from the URL
-const beerID = req.params.beerID;
-
-for(let beer of beers){
-    if (beer.beerID == beerID){
-        res.json(beer);
-        return;
-    }
-  
-}
-console.log('This is a single beer')
-res.status(404).send('Beer not found');
+const foundBeer =  beers.find(beer => beer.beerID === Number(req.params.beerID));
+foundBeer ? res.send({data: foundBeer}) : res.status(204).send({});
 });
 
 app.post('/beers',(req,res)=> {
@@ -49,7 +40,7 @@ const newBeer = req.body;
     res.send('Beer is changed')
 })
 
-app.patch('/beers:beerID',(req,res)=>{
+app.patch('/beers/:beerID',(req,res)=>{
     const beerID = req.params.beerID;
     const newBeer = req.body;
     
@@ -63,16 +54,14 @@ app.patch('/beers:beerID',(req,res)=>{
 })
 
 app.delete('/beers/:beerID',(req,res)=>{
-const beerID = req.params.beerID
+const foundBeerIndex = beers.findIndex(beer => beer.beerID === Number(req.params.beerID));
 
-for (let i = 0; i < beers.length; i++) {
-    let beer = beers[i];
-
-    if(beer.beerID == beerID) {
-        beers.splice(beers.indexOf(beer), 1);
-    }
+if(foundBeerIndex !== -1){
+    beers.splice(foundBeerIndex,1);
+    res.send({})
+} else {
+    res.status(404).send({})
 }
-res.send('Ale was deleted');
 })
 
 app.listen(8080);
