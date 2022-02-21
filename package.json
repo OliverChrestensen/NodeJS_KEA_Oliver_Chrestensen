@@ -4,7 +4,7 @@
     },
     "scripts":{
       "test": "echo ",
-      "start": "node app.js"
+      "start": "node index.js"
   
 
     }
