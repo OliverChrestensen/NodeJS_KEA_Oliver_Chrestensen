@@ -4,9 +4,9 @@
     },
     "scripts":{
       "test": "echo ",
-      "start": "node app.js"
+      "start": "node ClockWebsite_Express/app.js"
   
-      
+
     }
   }
   
