@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+      "express": "^4.17.2"
+    },
+    "scripts":{
+      "test": "echo ",
+      "start": "node app.js"
+  
+    }
+  }
+  
