@@ -1,9 +1,9 @@
 const express = require("express");
+const { append } = require("express/lib/response");
 const app = express();
 
 app.get("/",(req,res) => {
-    res.send(`
-        <h1> Welcome to mY website</h1>`);
+    res.sendFile(__dirname + "/public/clock.html")
 });
 
 
