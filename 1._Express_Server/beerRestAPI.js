@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express();
+app.use(express.json());
 
 const beers = []
+
+let CURRENT_ID = 0;
 
 app.use(express.json());
 
@@ -20,38 +23,23 @@ foundBeer ? res.send({data: foundBeer}) : res.status(204).send({});
 });
 
 app.post('/beers',(req,res)=> {
-    const beer = req.body;
-    console.log
-    beers.push(beer)
-    res.send('Book is added to Books[]')
+    const beerToCreate = req.body;
+    beerToCreate.beerID = ++CURRENT_ID;
+    beers.push(beerToCreate)
+    res.send({data: beerToCreate})
 });
 
-app.put('/beers/:beerID',(req,res)=>{
-// Reading beerID from the URL
-const beerID = req.params.beerID;
-const newBeer = req.body;
-
-    for(let i = 0; i<beers.length; i++){
-        let beer = beers[i]
-        if(beer.beerID == beerID){
-            beers[i] = newBeer;
-        }
-    }
-    res.send('Beer is changed')
-})
-
 app.patch('/beers/:beerID',(req,res)=>{
-    const beerID = req.params.beerID;
-    const newBeer = req.body;
-    
-        for(let i = 0; i<beers.length; i++){
-            let beer = beers[i]
-            if(beer.beerID == beerID){
-                beers[i] = newBeer;
-            }
-        }
-        res.send('Beer is changed')    
+    const foundBeerIndex = beers.findIndex(beer => beer.beerID === Number(req.params.id));
+    const foundBeer = beers[foundBeerIndex];
+
+    const beerToUpdateWith = req.body;
+    const updatedBeer = {...foundBeer, ...beerToUpdateWith, id: foundBeer.beerID};
+    beers[foundBeerIndex] = updatedBeer;
+
+    res.send({data: updatedBeer })    
 })
+
 
 app.delete('/beers/:beerID',(req,res)=>{
 const foundBeerIndex = beers.findIndex(beer => beer.beerID === Number(req.params.beerID));
