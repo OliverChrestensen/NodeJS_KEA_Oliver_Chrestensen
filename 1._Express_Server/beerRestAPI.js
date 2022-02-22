@@ -29,6 +29,7 @@ app.post('/beers',(req,res)=> {
     res.send({data: beerToCreate})
 });
 
+
 app.patch('/beers/:beerID',(req,res)=>{
     const foundBeerIndex = beers.findIndex(beer => beer.beerID === Number(req.params.id));
     const foundBeer = beers[foundBeerIndex];
