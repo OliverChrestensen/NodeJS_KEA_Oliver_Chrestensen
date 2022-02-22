@@ -36,7 +36,6 @@ app.patch('/beers/:beerID',(req,res)=>{
     const beerToUpdateWith = req.body;
     const updatedBeer = {...foundBeer, ...beerToUpdateWith, id: foundBeer.beerID};
     beers[foundBeerIndex] = updatedBeer;
-
     res.send({data: updatedBeer })    
 })
 
