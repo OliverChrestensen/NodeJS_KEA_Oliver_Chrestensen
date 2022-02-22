@@ -38,7 +38,7 @@ app.patch('/beers/:beerID',(req,res)=>{
     beers[foundBeerIndex] = updatedBeer;
     res.send({data: updatedBeer })    
 })
-
+ 
 
 app.delete('/beers/:beerID',(req,res)=>{
 const foundBeerIndex = beers.findIndex(beer => beer.beerID === Number(req.params.beerID));
