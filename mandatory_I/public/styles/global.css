@@ -1,0 +1,16 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url("https://my.alfred.edu/zoom/_images/foster-lake.jpg");
+    background-size: cover;
+    background-attachment:fixed;
+    margin: 0;
+    padding: 0;
+}
+
+
+#frontpageh1{
+    text-align: center;
+    margin-top: 200px;
+
+}
