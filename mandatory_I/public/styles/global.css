@@ -14,3 +14,65 @@ body {
     margin-top: 200px;
 
 }
+
+#variablesh1{
+    text-align: center;
+    margin-top: 200px;
+
+}
+
+#RESTAPIh1{
+    text-align: center;
+    margin-top: 200px;
+    color: black;
+}
+
+#carddivvariables{
+    background: rgba(0, 0, 0, 0.48);
+    color: white;
+    margin-top: 150px;
+    width: 700px;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carddivvariabless{
+    background: rgba(0, 0, 0, 0.48);
+    color: white;
+    margin-top: 150px;
+    width: 700px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#carddivnodemon{
+    background: rgba(0, 0, 0, 0.48);
+    color: white;
+    margin-top: 150px;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#RESTAPIIMGdiv{
+    margin-top: 200px;
+    margin-left: 500px;
+}
+
+#terminal{
+    border: 3px;
+    border-style: groove;
+    background-color: white;
+}
+
+#terminalexpress{
+    border: 3px;
+    border-style: groove;
+    background-color: white;
+    text-align: left;
+}

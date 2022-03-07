@@ -1,0 +1,51 @@
+
+
+<div id="carddivvariables" class="card text-center mx-auto">
+    <div class="card-body content-center">
+        <h5 class="card-title"> NodeJS Express Server</h5>
+        
+        <div id="container">
+            <p>&emsp;Use the npm init command in the terminal to create a package.json file for your application</p>
+            <p id="terminal">&emsp;&emsp;<code>npm init</code></p>
+            <p>&emsp;Now you can edit what you would like to edit, or simply press enter until the file has been created.</p>
+            <p>&emsp;You might want to change index.js to app.js, but it's up to you.</p>
+        </div><br>
+
+        <div id="container">
+            <p>&emsp;When you have created a working app you can run it by writing:
+            <p id="terminal">&emsp;&emsp;<code>node app.js</code></p>
+            <p>&emsp;Or whatever you chosed to called your JavaScript file.</p>
+
+             <p> To use express you have to install it first. Type this in the terminal:    
+            <p id="terminal">&emsp;&emsp;<code>npm install express</code></p> 
+            <p>now you have express installed and need to import it, chose a port for it to run on and make a simple route.
+            <br>
+            </p> 
+
+            <p>Here is a simple code snippet of how to make a simple express project</p>
+            <p id="terminalexpress"><code>
+                const express = require('express');
+                <br>
+                
+                const app = express();
+                <br>
+                <br>
+                const port = 3000;
+                <br>
+                <br>
+                app.get('/', (req, res) => {
+                    <br>
+                  res.send('Hello World!'); <br>
+                }); <br>
+                
+                <br>
+                app.listen(port, () => {
+                    <br>
+                  console.log(`Example app listening at http://localhost:${port}`); <br>
+                });</code></p> 
+
+        </div>
+    </div>
+
+
+  </div>
