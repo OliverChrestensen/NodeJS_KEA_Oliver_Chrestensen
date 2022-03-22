@@ -1,6 +1,10 @@
 const express = require("express");
 const { send } = require("process");
 const app = express();
+const fetch = require("node-fetch");
+const { response } = require("express");
+
+console.log(require("./dinosaurs/dinosaurs.json"))
 
 app.use(express.static("public"));
 
@@ -16,9 +20,19 @@ app.get("/welcome",(req,res) => {
 
 app.get("/bored",(req,res)=>{
 res.sendFile(__dirname + "/public/activities.html")
-
 });
 
-app.listen(8080,() => {
-    ("The server is running", 8080);
+app.get("/proxy",(req,res)=>{
+    fetch("http://www.google.com")
+.then(response => response.text())
+.then(page => res.send(page))
 });
+
+//task create a fallback
+const PORT = process.env.PORT || 9000;
+
+app.listen(PORT,() => {
+    ("The server is running", PORT);
+});
+
+console.log(PORT);
