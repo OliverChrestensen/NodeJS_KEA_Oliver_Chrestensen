@@ -36,10 +36,15 @@ app.use(session({
 
   import router from "./routers/planets.js";
 
+
   app.use(router);
-/*app.get("/clothes", (req,res) => {
-res.sendFile(__dirname + "/public/clothes.html");
-});*/
+
+  import path from "path";
+  
+
+app.get("/clothes", (req,res) => {
+res.sendFile(path.resolve("public/clothes.html"));
+});
 
 function ipLogger(){
 console.log (req.ip);
@@ -75,7 +80,6 @@ app.get("/room", (req,res, next) => {
 app.get("/room", (req,res) => { 
     res.send({data: "you are in room 2"});
 });
-
 
 
 const PORT = 8080;

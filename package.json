@@ -1,9 +1,0 @@
-{
-    "dependencies": {
-        "express": "^4.17.3"
-    },
-    "scripts": {
-        "test": "echo ",
-        "start": "node ClockWebsite_Express/index.js"
-    }
-}
