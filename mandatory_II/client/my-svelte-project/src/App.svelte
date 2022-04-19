@@ -1,10 +1,26 @@
 <script>
-	export let name;
+	import { Router, Link, Route } from "svelte-navigator";
+	import Login from "./pages/login/Login.svelte";
+	import Signup from "./pages/signup/Signup.svelte";
+	import Signout from "./pages/signout/Signout.svelte";
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>The MEGA SHOP</h1>
+	<Router>
+		<nav>
+			<Link to="/login">Login</Link>
+			<Link to="/signup">Signup</Link>
+			<Link to="/">Home</Link>
+			<Link to= "/signout">sign out</Link>
+			
+		</nav>
+
+		<Route path="/login" component={Login} />
+		<Route path="/signup" component={Signup} />
+		<Route path="/signout" component={Signout}/>
+		
+	</Router>
 </main>
 
 <style>
@@ -22,6 +38,9 @@
 		font-weight: 100;
 	}
 
+	nav {
+		width: 100%;
+	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
